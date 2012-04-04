@@ -1,0 +1,8 @@
+#!/bin/sh
+rm -rf test-out
+mkdir test-out
+sed '/^SUPPORTED/d; /^#/d; s/ \\$//; s_/_ _' < SUPPORTED | while read loc enc; do
+    echo "Testing $loc..."
+    localedef --no-archive -i locales/${loc%.*} -c -f $enc test-out/$loc
+done
+rm -rf test-out

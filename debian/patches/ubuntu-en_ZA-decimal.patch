@@ -1,0 +1,34 @@
+Description: South Africa uses comma as a decimal separator according to http://www.gcis.gov.za/resource_centre/guidelines/styleguide/editorial_styleguide_2011.pdf and http://en.wikipedia.org/wiki/Decimal_mark and http://unicode.org/cldr/trac/browser/tags/release-2-0-1/posix/en_ZA.UTF-8.src
+Bug: http://sourceware.org/bugzilla/show_bug.cgi?id=13414
+Bug-Ubuntu: https://launchpad.net/bugs/887395
+
+Index: langpack-locales/locales/en_ZA
+===================================================================
+--- langpack-locales.orig/locales/en_ZA	2011-11-16 11:19:29.597791282 +0100
++++ langpack-locales/locales/en_ZA	2011-11-16 11:22:55.161801231 +0100
+@@ -94,10 +94,10 @@
+ currency_symbol         "<U0052>"
+ 
+ % "."
+-mon_decimal_point       "<U002E>"
++mon_decimal_point       "<U002C>"
+ 
+ % ","
+-mon_thousands_sep       "<U002C>"
++mon_thousands_sep       "<U00A0>"
+ mon_grouping            3;3
+ positive_sign           ""
+ 
+@@ -115,10 +115,10 @@
+ 
+ LC_NUMERIC
+ % "."
+-decimal_point           "<U002E>"
++decimal_point           "<U002C>"
+ 
+ % ","
+-thousands_sep           "<U002C>"
++thousands_sep           "<U00A0>"
+ grouping                3;3
+ END LC_NUMERIC
+ 

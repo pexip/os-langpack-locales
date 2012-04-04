@@ -1,0 +1,617 @@
+langpack-locales (2.13+git20120306-3) precise; urgency=low
+
+  * Rename ubuntu-ug_US.patch to ubuntu-ug_CN@latin.patch, and also add it to
+    SUPPORTED.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 04 Apr 2012 12:03:04 +0200
+
+langpack-locales (2.13+git20120306-2) precise; urgency=low
+
+  * Add ubuntu-ug_US.patch: Latin Uyghur locale, thanks Eagle Burkut!
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Tue, 03 Apr 2012 08:13:04 +0200
+
+langpack-locales (2.13+git20120306-1) precise; urgency=low
+
+  * Update to current upstream glibc git head localedata.
+  * Drop ubuntu-brx_IN.patch, ubuntu-nl_BE-monetary.patch,
+    ubuntu-wal_ET-SUPPORTED.patch: Applied upstream.
+  * Unfuzz other patches.
+  * Add ubuntu-ug_CN.patch: Updates to Uyghur locale, thanks Eagle Burkut.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Tue, 06 Mar 2012 10:40:25 +0100
+
+langpack-locales (2.13+git20111116-1) precise; urgency=low
+
+  * Update to current upstream glibc git head localedata.
+  * Unfuzz patches for the current upstream version.
+  * Add ubuntu-brx_IN.patch. (LP: #874909)
+  * Add ubuntu-nl_BE-monetary.patch: Use Dutch monetary format for nl_BE.
+    (LP: #586742)
+  * Add ubuntu-en_ZA-decimal.patch: South Africa uses comma as a decimal
+    separator. (LP: #887395)
+  * debian/control: Bump Standards-Version to 3.9.2. No changes necessary.
+  * Switch to 3.0 (quilt) source format.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 16 Nov 2011 12:02:43 +0100
+
+langpack-locales (2.13+git20110622-2) oneiric; urgency=low
+
+  * Never purge /usr/lib/locale/C.UTF-8, as it's owned by the libc-bin
+    package.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 13 Sep 2011 14:15:29 +0100
+
+langpack-locales (2.13+git20110622-1) oneiric; urgency=low
+
+  * Update charmaps from upstream as well as locales.
+    - Add CP770, CP771, CP772, CP773, and CP774 charmaps.
+    - Update GB18030 to GB18020-2005.
+    - Update UTF-8, in particular to include the rupee symbol (LP: #799673).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 22 Jun 2011 12:24:00 +0100
+
+langpack-locales (2.13+git20110617-1) oneiric; urgency=low
+
+  * Update to current upstream glibc git head localedata.
+    - Add bem_ZM and en_ZM. (LP: #796591)
+  * Drop patches which got applied upstream:
+    - debian-submitted-bz9732-dz_BT-collation.diff
+    - ubuntu-sv_FI-dateformat.patch
+    - ubuntu-ru_RU-daymonthnames.patch
+    - ubuntu-lb_LU.patch
+    - ubuntu-sw.patch
+    - ubuntu-es_NI-currency.patch
+    - ubuntu-en_SG-timeformat.patch
+    - ubuntu-es_NI-papersize.patch
+  * Update other patches for new upstream version.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Fri, 17 Jun 2011 09:15:31 +0200
+
+langpack-locales (2.13+git20100825-4) natty; urgency=low
+
+  * Add ubuntu-es_NI-currency.patch: Fix LC_MONETARY symbol. Thanks Leandro
+    Gómez for the patch! (LP: #546581)
+  * Add ubuntu-en_SG-timeformat.patch: Fix strange date format. Thanks KH Teo
+    for the patch! (LP: #699886)
+  * Add ubuntu-es_NI-papersize.patch: The standard paper size in Nicaragua is
+    US Letter, not A4. Thanks Leandro Gómez for the patch! (LP: #586700)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Tue, 15 Mar 2011 17:32:38 +0100
+
+langpack-locales (2.13+git20100825-3) natty; urgency=low
+
+  * debian/rules: Add "pull-upstream" rule to grab the current glibc git head
+    locale data.
+  * Add ubuntu-sw.patch: Add sw_KE and sw_TZ, thanks Claude Paroz!
+    (LP: #237130)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 09 Mar 2011 19:01:10 +0100
+
+langpack-locales (2.13+git20100825-2) natty; urgency=low
+
+  * Add ubuntu-lb_LU.patch: Add locale for Luxembourgish Luxembourg, thanks to
+    Pit Wenkin! (LP: #524712)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Fri, 28 Jan 2011 13:47:41 +0100
+
+langpack-locales (2.13+git20100825-1) maverick; urgency=low
+
+  * Update to current upstream glibc git head localedata.
+  * Add debian/patches/ubuntu-ru_RU-daymonthnames.patch: Russian month names
+    are written in lower case, and weekday names are usually abbreviated in
+    two-letter form. Thanks Alexey Balmashnov! (LP: #124987)
+  * Drop debian-fr_BE-first_weekday.diff, applied upstream.
+  * Refresh patches to apply to new upstream version.
+  * debian/control: Bump Standards-Version to 3.9.1 (no changes necessary).
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 25 Aug 2010 15:46:48 +0200
+
+langpack-locales (2.11+git20100304-6) maverick; urgency=low
+
+  * Add debian/source/format. Keep "1.0", since 3.0 is a pain for full source
+    in revision control.
+  * Add ubuntu-sd_PK.patch: Add sd_PK locale, thanks to Abdul-Rahim Nizamani!
+    (LP: #588910)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Fri, 18 Jun 2010 10:35:11 +0200
+
+langpack-locales (2.11+git20100304-5) maverick; urgency=low
+
+  * Switch to using a locale archive (LP: #591676):
+    - debian/local/locale-gen: Set ARCHIVE=yes by default.
+    - debian/locales.postinst: Clean up the non-archived locales on upgrades
+      to this version right before regenerating them.
+    - debian/local/remove-language-pack: Add case for removing locales from an
+      archive.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 14 Jun 2010 13:33:49 +0200
+
+langpack-locales (2.11+git20100304-4) maverick; urgency=low
+
+  * debian/rules: gzip the charmaps. This reduces their disk footprint from 15
+    to 3 MB, and they are only required on localedef time (i. e. not during
+    normal operations).
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 19 May 2010 15:01:09 +0200
+
+langpack-locales (2.11+git20100304-3) lucid; urgency=low
+
+  * debian/local/{install,remove}-language-pack: Drop reloading of gdm.
+    gdm is upstartified now, and the current gdm does not need a reload in the
+    first place. (LP: #562795)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 14 Apr 2010 07:54:01 +0200
+
+langpack-locales (2.11+git20100304-2) lucid; urgency=low
+
+  * debian/local/{install,remove}-language-pack: Trigger gmenucache, to ensure
+    that the gnome-menus .desktop file cache is updated after changing
+    language packs. (LP: #545951)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Thu, 25 Mar 2010 15:45:47 +0100
+
+langpack-locales (2.11+git20100304-1) lucid; urgency=low
+
+  * Update to current upstream glibc git head localedata:
+    - New locales: my_MM (LP: #175368), ps_AF
+    - Fix yes/no strings and first day of week in several locales.
+    - es_CO: Define AM/PM. (LP: #51255)
+  * debian-first_weekday.diff: Update to drop bits which got accepted
+    upstream.
+  * debian-tailor-iso14651_t1.diff: Drop hsb_DE part, which does not apply any
+    more. (It's just simplification)
+  * Drop ubuntu-shs_CA-accents.patch, applied upstream.
+  * Add debian-fr_{BE,CA,CH,LU}-first_weekday.diff from Debian, to fix first
+    day of week for various French locales. (LP: #497497)
+  * debian/local/locale-gen: Fix building of an explicitly specified locale
+    for the .utf8 form.
+  * debian/control: Bump Standards-Version to 3.8.4 (no changes necessary).
+  * Convert patch system to quilt, for better robustness.
+  * Convert to debhelper 7 and dh.
+  * Install scripts in debian/local/* in debian/install instead of
+    debian/rules. dh_fixperms takes care of the permissions for us.
+  * Prefix debhelper data files with "locales" package name for consistency.
+  * Add debian/README.source.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Thu, 04 Mar 2010 15:41:50 +0100
+
+langpack-locales (2.9+git20090617-4) lucid; urgency=low
+
+  * Add debian/patches/ubuntu-tlh_UK.patch: Add Klingon for Scott.
+    (LP: #516359)
+
+ -- Robert Collins <robertc@robertcollins.net>  Tue, 02 Feb 2010 18:21:43 -0800
+
+langpack-locales (2.9+git20090617-3) karmic; urgency=low
+
+  * Add debian/patches/ubuntu-shs_CA-accents.patch: Fix accents in shs_CA,
+    thanks Neskie Manuel! (LP: #386718)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Thu, 15 Oct 2009 01:10:30 +0200
+
+langpack-locales (2.9+git20090617-2) karmic; urgency=low
+
+  * Add ubuntu-sv_FI-dateformat.patch: Remove erroneous "ta" suffix in date
+    format. (LP: #374446)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Tue, 06 Oct 2009 11:27:54 +0200
+
+langpack-locales (2.9+git20090617-1) karmic; urgency=low
+
+  * Update to current upstream glibc git head localedata: 
+    - Adds nan_TW@latin. (LP: #236028)
+  * Drop patches accepted upstream:
+    - es_CO-papersize.patch
+    - iso14651_kra_sorting.patch
+    - mt_MT-Awwissu-spelling.patch
+  * Move locale.alias.5 to debian/local/, since it's not from upstream.
+  * Add debian/patches/debian-*: Import localedata patches from Debian's
+    eglibc source package, as far as they apply. This is easier to maintain
+    than applying them inline, since the primary code base is now [e]glibc
+    upstream.
+  * Rename our Ubuntu patches to ubuntu-*.
+  * debian/rules: Install a temporary localedata -> . symlink, so that the
+    Debian patches apply.
+  * Add ubuntu-wal_ET-SUPPORTED.patch: Add missing wal_ET entry to SUPPORTED.
+    (LP: #362726) (The other missing entries got fixed by applying the Debian
+    patches properly now)
+  * Don't directly install SUPPORTED in debian/install any more, but in
+    debian/rules, and apply some seddery to convert the format to the one we
+    are currently using.
+  * debian/local/test-locales: Update to get along with upstream format of
+    SUPPORTED.
+  * Bump Standards-Version to 3.8.1 and debhelper compat to 5.
+  * debian/control: Add missing ${misc:Depends}.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 17 Jun 2009 11:05:25 +0200
+
+langpack-locales (2.9+cvs20090214-7) jaunty; urgency=low
+
+  * Add iso14651_kra_sorting.patch: Fix sorting of 'ĸ'. (LP: #325159)
+  * Add es_CO-papersize.patch: Standard paper size in Columbia is US Letter,
+    not A4. (LP: #27622)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 25 Mar 2009 11:07:48 +0100
+
+langpack-locales (2.9+cvs20090214-6) jaunty; urgency=low
+
+  * debian/local/locale-gen:
+    - Add --lang option which means the argument is a language code and
+      not a specific locale.  All of its locales will be generated,
+      including any without a country code.(LP: #23435)
+  * debian/local/install-language-pack:
+    - Call locale-gen with above --lang argument
+  * debian/local/remove-language-pack:
+    - Remove locales even if they don't have a country associated with
+      them.
+
+ -- Michael Terry <michael.terry@canonical.com>  Fri, 30 Jan 2009 10:55:02 -0500
+
+langpack-locales (2.9+cvs20090214-5) jaunty; urgency=low
+
+  * Add debian/local/txt2unicode.py: Script to convert an unicode
+    string into the <Uxxxx> format used in locale definitions.
+  * Add mt_MT-Awwissu-spelling.patch: Fix Maltese spelling of *
+    "Awwissu" (August). (LP: #262133)
+  * Add en_CA-dateformat.patch: en_CA date format should be "%y-%m-%d"
+    (see http://inms-ienm.nrc-cnrc.gc.ca/faq_time_e.html#Q8).
+    (LP: #214730)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Tue, 24 Feb 2009 17:29:59 +0100
+
+langpack-locales (2.9+cvs20090214-4) jaunty; urgency=low
+
+  * Drop Conflicts: to belocs-locales-bin, just keep the Replaces:.
+    libc6 already conflicts to it and thus will cause it to be cleaned
+    up on upgrades. This narrows the time when /usr/bin/locale does
+    not exist. (LP: #330048)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 16 Feb 2009 15:18:57 +0100
+
+langpack-locales (2.9+cvs20090214-3) jaunty; urgency=low
+
+  * Do not install /etc/belocs/iso-639.def any more.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 16 Feb 2009 10:08:00 +0100
+
+langpack-locales (2.9+cvs20090214-2) jaunty; urgency=low
+
+  * debian/control: Add alternative dependency to libc6.1, to unbreak
+    ia64.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 16 Feb 2009 09:48:20 +0100
+
+langpack-locales (2.9+cvs20090214-1) jaunty; urgency=low
+
+  * Reupload with a cleaned orig.tar.gz, so that the patches actually
+    apply.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Sat, 14 Feb 2009 14:37:36 +0100
+
+langpack-locales (2.9+cvs20090213-1) jaunty; urgency=low
+
+  * Synchronize locale data from current CVS head.
+  * Drop patches included upstream:
+    - es_CR-first-weekday.patch
+    - lv_LV_abday.patch
+    - shs_CA.patch
+  * Move locale generation scripts into this package, from
+    belocs-locales-bin (which is going away, it's dead upstream):
+    - Add debian/local/locale-gen and manpage
+    - Add debian/local/{install,remove}-language-pack
+    - debian/manpages: Install locale-gen.8
+    - debian/rules: Install above scripts.
+    - debian/control: Conflicts/Replaces: belocs-locales-bin and
+      depend on current libc6 instead (which now provides localedef
+      and friends again).
+    - debian/local/locale-gen: Remove belocs magic handling.
+  * debian/preinst: Remove obsolete /etc/belocs/ configuration files.
+  * Drop iso14651_t1_filename.patch, not needed any more with current
+    glibc's localedef.
+  * debian/copyright: Update to current copyright of glibc
+    (LGPL-2.1+).
+  * debian/control: Move to Section "libs", since "base" is obsolete.
+  * debian/locales.postinst: Don't call locale-gen with full path
+    (Debian Policy 6.1).
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Sat, 14 Feb 2009 14:37:29 +0100
+
+langpack-locales (2.7.9-5) intrepid; urgency=low
+
+  * Add debian/patches/la_AU.patch: Add Latin/Australia locale, thanks to
+    Robert Collins! (Rejected upstream). (LP: #234105)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 18 Jun 2008 12:45:43 +0200
+
+langpack-locales (2.7.9-4) hardy; urgency=low
+
+  * Remove debian/patches/es-am_pm.patch again, since 24 hour format is more
+    common in Spain. (LP: #202661) For those people who prefer 12 hour,
+    gnome-panel should provide this as an option instead of adding patches for
+    this to every single locale (see LP #51255).
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 26 Mar 2008 17:28:54 +0100
+
+langpack-locales (2.7.9-3) hardy; urgency=low
+
+  * Add debian/patches/shs_CA.patch: Add shs_CA locale. (LP: #189995)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Thu, 13 Mar 2008 18:17:31 +0100
+
+langpack-locales (2.7.9-2) hardy; urgency=low
+
+  * Drop sr_RS_currency.patch. According to Danilo Scheran, RSD is the
+    official Serbian currency.
+  * Forwarded our patches upstream, add "Upstream:" tags to them.
+  * Drop debian/patches/serbia_country_num.patch; Current iso_3166.xml
+    shows that 688 is the correct country number for Serbia, and the bug is
+    actually in belocs-locales-bin's outdated iso-3166.def.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Tue, 11 Mar 2008 23:05:22 +0100
+
+langpack-locales (2.7.9-1) hardy; urgency=low
+
+  * Synchronize to locales data from glibc 2.7-9.
+    - Now includes pl_PL_dateformat.patch, drop patch.
+    - Fixes pt_PT monetary decimal point. (LP: #111791)
+    - Fixes pl_PL date format. (LP: #184405)
+    - Adds AM/PM for es_VE. (LP: #119645)
+  * Tag our remaining patches.
+  * Add debian/patches/en_IE-am_pm.patch: Add AM/PM definition for en_IE.
+    (LP: #199899)
+  * Add debian/patches/eo_US.patch: Add eo_US locale, thanks to David
+    Mandelberg. (LP: #1918)
+  * Add debian/patches/es-am_pm.patch: Add AM/PM defintion for es_ES
+    (LP: #51255) and es_MX (LP: #106381)
+  * Add debian/patches/es_CR-first-weekday.patch: Fix first weekday and
+    workday for es_CR. (LP: #149007)
+  * Add debian/patches/en_AU-first-weekday.patch: Fix first weekday and
+    workday for en_AU. (LP: #192507)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Tue, 11 Mar 2008 13:10:48 +0100
+
+langpack-locales (2.6.1-1) gutsy; urgency=low
+
+  * Move to non-native packaging, now that we maintain our locales as patches
+    relative to glibc upstream.
+  * Add debian/patches/pl_PL_dateformat.patch: Fix Polish date format. Thanks
+    to Arne Goetje for the patch! (LP: #133667)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Fri, 24 Aug 2007 17:02:39 +0200
+
+langpack-locales (2.6.1) gutsy; urgency=low
+
+  * Synchronize to locales data from glibc 2.6.1, since belocs-locales-data
+    seems unmaintained at the moment.
+  * Create a proper patch lv_LV_abday.patch for our remaining delta: Remove
+    the stray spaces from abbreviated Latvian weekday names. (LP #58338)
+  * Add test-locales: Script to test-build all supported locales to catch
+    errors.
+  * debian/control: Bump dependency to belocs-locales-bin to get the map
+    fixes.
+  * Add debian/patches/sr_RS_currency.patch: Fix international currency
+    symbol: RSD -> CSD (according to ISO-4217).
+  * Add debian/patches/iso14651_t1_filename.patch: Fix iso14651_t1 inclusion
+    in ky_KG and uk_UA; our belocs-locales-bin does not understand the <U1234>
+    syntax in include files.
+  * Add debian/patches/serbia_country_num.patch: Fix numeric country code of
+    Serbia.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Thu, 16 Aug 2007 10:28:26 +0200
+
+langpack-locales (2.3.23) feisty; urgency=low
+
+  * Synchronize to belocs-locales-data 2.4-5 locales, lots of fixes.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Thu, 14 Dec 2006 06:40:50 +0100
+
+langpack-locales (2.3.22) edgy; urgency=low
+
+  * Drop belocs-locales-bin Pre-Depends: to a Depends: again, now that b-l-b
+    does not depend on us any more. Closes: LP#62429
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Fri,  6 Oct 2006 12:57:26 +0200
+
+langpack-locales (2.3.21) edgy; urgency=low
+
+  * lv_LV: Fix abbreviated day names. Closes: LP#58338
+  * debian/control: Pre-Depend on belocs-locales-bin instead of just depending
+    on it, so that an updated locale-gen.conf actually has an effect. Closes:
+    LP#50739
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 18 Sep 2006 11:20:29 +0200
+
+langpack-locales (2.3.20) edgy; urgency=low
+
+  * Synchronize data with belocs-locale-data 2.4-2.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Fri,  4 Aug 2006 12:49:16 +0200
+
+langpack-locales (2.3.19) edgy; urgency=low
+
+  * Depends on newer belocs-locales-bin
+
+  * Drop timezone bits, depend on tzdata.
+
+ -- Jeff Bailey <jbailey@ubuntu.com>  Wed, 21 Jun 2006 13:28:15 -0400
+
+langpack-locales (2.3.18) dapper; urgency=low
+
+  * bn_BD: Fix LC_TIME.abday and LC_TIME.day with patch from
+    http://sources.redhat.com/bugzilla/show_bug.cgi?id=2662. Closes: LP#44982
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Tue, 16 May 2006 12:56:35 +0200
+
+langpack-locales (2.3.17) dapper; urgency=low
+
+  * Update timezone data to 2006g.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 15 May 2006 17:21:07 +0200
+
+langpack-locales (2.3.16) dapper; urgency=low
+
+  * Add and ship forgotten file iso-639.def; this fixes generation of e. g.
+    the bn_BD locale.
+  * locales/en_IE: Add AM/PM definition. Closes: LP#42552
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 10 May 2006 13:27:24 +0200
+
+langpack-locales (2.3.15) dapper; urgency=low
+
+  * locales/ca_ES@valencia: Add Valencian locale, thanks to Jordi Mallach and
+    Robert Millan. Closes: LP#39681
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Fri, 28 Apr 2006 13:14:56 +0200
+
+langpack-locales (2.3.14) dapper; urgency=low
+
+  * locales/{en,cy}_GB: Add AM/PM definition. (See Malone #34262).
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 10 Apr 2006 12:57:24 +0200
+
+langpack-locales (2.3.13) dapper; urgency=low
+
+  * locales/tr_TR: Re-add trailing space in int_curr_symbol, it is correct.
+    Closes: LP#34738
+  * Fix Catalan locales (sync with Debian), thanks to Robert Millan.
+    - Add Euro support to ca_FR and ca_AD.
+    - Remove obsolete ca_FR@euro and ca_AD@euro.
+    - Add ca_IT.
+    - List them all in SUPPORTED file.
+    - Closes: LP#37011
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Thu, 30 Mar 2006 17:35:33 +0200
+
+langpack-locales (2.3.12) dapper; urgency=low
+
+  * locales/en_NZ: Add AM/PM definition (Malone #34262)
+  * locales/tr_TR: Fix stray space in int_curr_symbol (Malone #34738)
+  * locales/eo: Rename to eo_XX, since that's the format that other programs
+    expect (Malone #23435)
+  * locales/es_CO: Change standard paper size from A4 to US Letter. (Malone
+    #27622)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 20 Mar 2006 16:42:09 +0100
+
+langpack-locales (2.3.11) dapper; urgency=low
+
+  * Add debhelper token to postinst.
+
+  * Move timezone configury logic from libc.postinst to locales.postinst
+
+  * Update FSF address.
+
+  * Update to tzdata2006b
+
+ -- Jeff Bailey <jbailey@ubuntu.com>  Wed,  1 Mar 2006 13:52:44 -0500
+
+langpack-locales (2.3.10) dapper; urgency=low
+
+  * Add iso3166.tab and zone.tab files into /usr/share/zoneinfo.
+
+ -- Jeff Bailey <jbailey@ubuntu.com>  Fri,  3 Feb 2006 15:59:56 +0000
+
+langpack-locales (2.3.9) dapper; urgency=low
+
+  * Transform into a native package to handle embedded tar.gz file.
+
+  * Add timezones.
+    - debian/updatetzdata.sh: New file.
+    - debian/tzdata2006a.tar.gz: New upstream snapshot.
+
+  * Remove stray bits from debian/control
+    - debian/control: Don't build-dep on po4a
+
+ -- Jeff Bailey <jbailey@ubuntu.com>  Fri,  3 Feb 2006 09:51:59 +0000
+
+langpack-locales (2.3.8-1) dapper; urgency=low
+
+  * Update to latest belocs locales.
+    - Fixes first day of week for German. (Malone #5387) and Spanish 
+      (Malone #29672).
+  * debian/control: Add dependency to belocs-locales-bin.
+  * Do not ship locale-gen and {install,remove}-language-pack any more, these
+    were moved to belocs-locales-bin.
+  * debian/locales.postinst: Check $1, call locale-gen with full path.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed,  1 Feb 2006 22:36:27 +0000
+
+langpack-locales (2.3.7-6) dapper; urgency=low
+
+  * Allow locale-gen with locale arguments to work even when no language
+    packs have been installed yet (i.e. /var/lib/locales/supported.d/ is
+    empty).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 16 Jan 2006 19:07:51 +0000
+
+langpack-locales (2.3.7-5) dapper; urgency=low
+
+  * (re)generate locales in postinst.
+  * always regenerate locales if they're specified on the command line.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Fri, 13 Jan 2006 13:40:18 +0100
+
+langpack-locales (2.3.7-4) dapper; urgency=low
+
+  * Add validlocale program, formerly in base-config. Conflict with and
+    replace base-config.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon,  2 Jan 2006 19:08:00 +0000
+
+langpack-locales (2.3.7-3) dapper; urgency=low
+
+  * debian/preinst:
+    - Remove old /etc/locale.gen after migrating it to supported.d/.
+    - Do not fail if locale.gen does not contain anything but comments.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Sun,  1 Jan 2006 14:12:06 +0100
+
+langpack-locales (2.3.7-2) dapper; urgency=low
+
+  * debian/preinst: Make sure that /var/lib/locales/supported.d/ exists.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 28 Dec 2005 15:15:51 +0100
+
+langpack-locales (2.3.7-1) dapper; urgency=low
+
+  * Ship all locales again, the language packs do not ship them any more (as
+    discussed in yesterday's meeting).
+  * debian/preinst: Rescue /etc/locale.gen to
+    /var/lib/locales/supported.d/local on upgrades.
+  * locale-gen:
+    - Drop --utf8 parameter again, it is obsolete now. The language pack's
+      supported.d files only have UTF-8 locales and we might want to support
+      other encodings in the future.
+    - Command line arguments now can specify a list of languages and locales
+      which will be generated in addition to the ones supported by the
+      language packs.
+  * Adapted locale-gen.8 manpage for new behaviour.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Tue, 20 Dec 2005 17:26:16 +0100
+
+langpack-locales (2.3.6-3) dapper; urgency=low
+
+  * {install,remove}-language-packs: Reload gdm to make it aware of
+    new/removed locales. (Ubuntu #16687)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Tue, 13 Dec 2005 16:17:48 +0100
+
+langpack-locales (2.3.6-2) dapper; urgency=low
+
+  * Fix permissions of install/remove hooks.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Thu,  1 Dec 2005 21:01:14 +0100
+
+langpack-locales (2.3.6-1) dapper; urgency=low
+
+  * Initial release as a standalone Ubuntu specific package according to
+    https://wiki.ubuntu.com/LocalesThatDontSuck.
+  * Provides a common install/remove hook for language pack maintainer
+    scripts.
+  * Drop /etc/locale.gen conffile.
+  * Modify locale-gen to use /var/lib/locales/supported.d/, and add an --utf8
+    parameter.
+  * Update locale-gen manpage.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 28 Nov 2005 22:36:11 +0100

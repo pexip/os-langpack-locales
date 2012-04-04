@@ -1,0 +1,21 @@
+Source: langpack-locales
+Section: libs
+Priority: important
+Maintainer: Martin Pitt <martin.pitt@ubuntu.com>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.9.2
+
+Package: locales
+Architecture: all
+Depends: libc6 (>= 2.9-0ubuntu10) | libc6.1 (>= 2.9-0ubuntu10), ${misc:Depends}
+Conflicts: belocs-locale-data, base-config
+Replaces: belocs-locale-data, belocs-locales-bin, base-config, libc6 (<< 2.3.6-0ubuntu6), libc6.1 (<< 2.3.6-0ubuntu6)
+Description: common files for locale support
+ This package provides support for localized environments (locales).
+ It installs character and transliteration maps, provides the POSIX
+ locale definition and provides common scripts for language pack
+ handling.
+ .
+ The actual locale definitions are not part of this package, these are
+ shipped in the language packs and are installed and removed
+ automatically.

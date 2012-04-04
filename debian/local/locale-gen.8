@@ -1,0 +1,93 @@
+.TH LOCALE-GEN 8 "March 2005" "Debian GNU/Linux"
+.SH "NAME" 
+locale-gen \- compile a list of locale definition files
+
+.SH "SYNOPSIS" 
+.B locale-gen
+[\fIoptions\fR] [\fIlocale\fR] [\fIlanguage\fR] ...
+
+.SH "DESCRIPTION" 
+Compiled locale files take about 50MB of disk space, and most users
+only need few locales.  In order to save disk space, compiled locale
+files are not distributed in the
+.B locales
+package, but selected locales are automatically generated when this
+package is installed by running the
+.B locale-gen
+program.
+
+If a list of languages and/or locales is specified as arguments, then
+\fBlocale-gen\fR only generates these particular locales and adds the new ones
+to /var/lib/locales/supported.d/local.  Otherwise it generates all supported
+locales.
+
+.PP
+Locale data files can be stored either in a single archive file,
+.BR /usr/lib/locale/locale-archive ,
+or in a deep tree where individual files are stored under
+.BR /usr/lib/locale/<locale_name>/LC_* .
+But unlike the
+.B locales
+package, compiled locale definitions are not removed when running
+.BR locale-gen ,
+and locales are compiled again only if locale source files have changed.
+
+.SH "OPTIONS" 
+These options override settings found in
+.BR /etc/belocs/locale-gen.conf .
+
+.TP
+.B \-\-help
+Display an help message and exit.
+.TP
+.B \-\-purge
+Remove all existing locales before processing.
+.TP
+.B \-\-no\-purge
+Do not remove existing locales before processing.
+.TP
+.B \-\-archive
+When this option is set, locale data are stored in a single archive
+.BR /usr/lib/locale/locale-archive .
+.TP
+.B \-\-no\-archive
+When this option is set, locale data are stored in
+.B /usr/lib/locale/<locale_name>/LC_*
+files.
+This is the default.
+.TP
+\fB\-\-aliases\fP=\fIFILE\fP
+Locale aliases are read from
+.IR FILE .
+
+.SH "FILES" 
+.TP
+.B /var/lib/locales/supported.d/*
+List all locales to generate.  File format is similar to
+.BR /usr/share/i18n/SUPPORTED .
+.TP
+.B /etc/belocs/locale-gen.conf
+Customize how compiled locale files are stored onto disk.
+.TP
+.B /usr/lib/locale/<locale_name>/LC_*
+Compiled locale data.
+.TP
+.B /usr/lib/locale/locale-archive
+Generated archive containing compiled locale data, if
+.B \-\-archive
+flag is set.
+.TP
+.B /var/lib/belocs
+Directory used to keep track of changes in locale source files.
+ 
+.SH "SEE ALSO" 
+localedef(1), locale(1), locale-gen.conf(5).
+.SH "AUTHOR" 
+The
+.B locale-gen
+program was originally written by Debian GNU libc maintainers,
+and has been improved by Denis Barbier <barbier@debian.org> for
+the
+.B belocs-locales-bin
+package.  This manual page has been rewritten from scratch to
+document the current behavior.

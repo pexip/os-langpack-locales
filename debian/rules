@@ -1,0 +1,22 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_install:
+	dh_install
+	mkdir -p debian/locales/usr/share/i18n
+	sed '/^SUPPORTED/d; s/ \\$$//; s_/_ _' < SUPPORTED > debian/locales/usr/share/i18n/SUPPORTED
+	chmod a+x debian/locales/usr/share/locales/*-language-pack
+	gzip -9 debian/locales/usr/share/i18n/charmaps/*
+
+pull-upstream:
+	for link in `wget -q -O- 'http://sourceware.org/git/?p=glibc.git;a=tree;f=localedata/charmaps;hb=HEAD' | grep -o '/git/[^"]*a=blob_plain;[^"]*'`; do \
+	    charmap=`echo "$$link" | sed -r 's_.*/([-a-zA-Z0-9,.@_]+);.*$$_\1_'`; \
+	    wget -O charmaps/$$charmap "http://sourceware.org$$link"; \
+	done
+	for link in `wget -q -O- 'http://sourceware.org/git/?p=glibc.git;a=tree;f=localedata/locales;hb=HEAD' | grep -o '/git/[^"]*a=blob_plain;[^"]*'`; do \
+	    locale=`echo "$$link" | sed -r 's_.*/([a-zA-Z0-9@_]+);.*$$_\1_'`; \
+	    wget -O locales/$$locale "http://sourceware.org$$link"; \
+	done
+	wget -O- 'http://sourceware.org/git/?p=glibc.git;a=blob_plain;f=localedata/SUPPORTED;hb=HEAD' > SUPPORTED
