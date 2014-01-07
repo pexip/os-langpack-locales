@@ -1,9 +1,11 @@
 Source: langpack-locales
 Section: libs
 Priority: important
-Maintainer: Martin Pitt <martin.pitt@ubuntu.com>
+Maintainer: Pexip AS <packaging@pexip.com>
+XSBC-Pexip-Original-Maintainer: Martin Pitt <martin.pitt@ubuntu.com>
 Build-Depends: debhelper (>= 7.0.50~)
 Standards-Version: 3.9.2
+XS-Pexip-Upstream: http://archive.ubuntu.com/ubuntu/ precise
 
 Package: locales
 Architecture: all

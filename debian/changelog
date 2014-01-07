@@ -1,3 +1,9 @@
+langpack-locales (2.13+git20120306-3pexip1) pexip; urgency=low
+
+  * Prepare Pexip packaging
+
+ -- John-Mark Bell <jmb@pexip.com>  Tue, 07 Jan 2014 11:22:07 +0000
+
 langpack-locales (2.13+git20120306-3) precise; urgency=low
 
   * Rename ubuntu-ug_US.patch to ubuntu-ug_CN@latin.patch, and also add it to
